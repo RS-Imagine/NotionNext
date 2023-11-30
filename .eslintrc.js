@@ -21,7 +21,6 @@ module.exports = {
       version: 'detect'
     }
   },
-  rules: '',
   globals: {
     React: true
   }

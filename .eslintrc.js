@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: 'next',
+  extends: '',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -21,10 +21,7 @@ module.exports = {
       version: 'detect'
     }
   },
-  rules: {
-    'react/no-unescaped-entities': 'off',
-    '@next/next/no-page-custom-font': 'off'
-  },
+  rules: '',
   globals: {
     React: true
   }

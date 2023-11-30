@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: '',
+  extends: [
+    'plugin:react/recommended',
+    'plugin:@next/next/recommended',
+    'standard',
+	'next'
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -20,6 +25,15 @@ module.exports = {
     react: {
       version: 'detect'
     }
+  },
+  rules: {
+    semi: 0,
+    'react/no-unknown-property': 'off', // <style jsx>
+    'react/prop-types': 'off',
+    'space-before-function-paren': 0,
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+	'react/no-unescaped-entities': 'off',
+    '@next/next/no-page-custom-font': 'off'
   },
   globals: {
     React: true

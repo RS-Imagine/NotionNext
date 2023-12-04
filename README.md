@@ -1,6 +1,2 @@
 # NotionNext for Imagine-Blog
-通过[Netlify平台](https://netlify.com/)部署NotionNext方案，得到[Imagine博客网站](https://forimagine.eu.org/)
-
-## License
-
-The MIT License.
+通过[Vercel平台](https://vercel.com/)部署NotionNext方案，搭建的[Imagine博客](https://forimagine.eu.org/)

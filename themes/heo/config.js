@@ -5,8 +5,8 @@ const CONFIG = {
 
   // 首页顶部通知条滚动内容，如不需要可以留空 []
   HEO_NOTICE_BAR: [
-    { title: '欢迎来到我的博客', url: 'https://forimagine.eu.org' },
-    { title: '猥以蒙鄙之姿，得觀希世之寶' }
+    { title: '你好，欢迎来到我的个人博客！', url: '#' },
+    { title: '猥以蒙鄙之姿，得觀希世之寶',url: '#' }
   ],
 
   // 英雄区(首页顶部大卡)

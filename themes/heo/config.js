@@ -9,6 +9,11 @@ const CONFIG = {
     { title: '猥以蒙鄙之姿，得觀希世之寶',url: '#' }
   ],
 
+  // 英雄区左右侧组件颠倒位置
+  HEO_HERO_REVERSE: false,
+  // 博客主体区左右侧组件颠倒位置
+  HEO_HERO_BODY_REVERSE: false,
+
   // 英雄区(首页顶部大卡)
   HEO_HERO_TITLE_1: '猥以蒙鄙之姿',
   HEO_HERO_TITLE_2: '得觀希世之寶',

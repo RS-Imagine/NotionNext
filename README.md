@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NotionNext
 
 <p>
@@ -207,3 +208,7 @@
 ## License
 
 The MIT License.
+=======
+# NotionNext for Imagine-Blog
+通过[Vercel平台](https://vercel.com/)部署NotionNext方案，搭建的[Imagine博客](https://forimagine.eu.org/)
+>>>>>>> cdee117e2e7325faed1d706a466dc6187b5805d5

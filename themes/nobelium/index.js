@@ -37,16 +37,14 @@ export const useNobeliumGlobal = () => useContext(ThemeGlobalNobelium)
  * @constructor
  */
 const LayoutBase = props => {
-  const { children, post, meta } = props
+  const { children, post, topSlot, meta } = props
+
   const fullWidth = post?.fullWidth ?? false
   const { onLoading } = useGlobal()
   const searchModal = useRef(null)
-  // 在列表中进行实时过滤
-  const [filterKey, setFilterKey] = useState('')
-  const topSlot = <BlogListBar {...props}/>
 
   return (
-        <ThemeGlobalNobelium.Provider value={{ searchModal, filterKey, setFilterKey }}>
+        <ThemeGlobalNobelium.Provider value={{ searchModal }}>
             <div id='theme-nobelium' className='nobelium relative dark:text-gray-300  w-full  bg-white dark:bg-black min-h-screen flex flex-col'>
                 {/* SEO相关 */}
                 <CommonHead meta={meta} />
@@ -116,8 +114,10 @@ const LayoutIndex = props => {
  * @returns
  */
 const LayoutPostList = props => {
-  const { posts, topSlot, tag } = props
-  const { filterKey } = useNobeliumGlobal()
+  const { posts, topSlot } = props
+
+  // 在列表中进行实时过滤
+  const [filterKey, setFilterKey] = useState('')
   let filteredBlogPosts = []
   if (filterKey && posts) {
     filteredBlogPosts = posts.filter(post => {
@@ -130,11 +130,10 @@ const LayoutPostList = props => {
   }
 
   return (
-        <>
+        <LayoutBase {...props} topSlot={<BlogListBar {...props} setFilterKey={setFilterKey} />}>
             {topSlot}
-            {tag && <SearchNavBar {...props} />}
             {siteConfig('POST_LIST_STYLE') === 'page' ? <BlogListPage {...props} posts={filteredBlogPosts} /> : <BlogListScroll {...props} posts={filteredBlogPosts} />}
-        </>
+        </LayoutBase>
   )
 }
 
@@ -160,7 +159,7 @@ const LayoutSearch = props => {
   }, [])
 
   // 在列表中进行实时过滤
-  const { filterKey } = useNobeliumGlobal()
+  const [filterKey, setFilterKey] = useState('')
   let filteredBlogPosts = []
   if (filterKey && posts) {
     filteredBlogPosts = posts.filter(post => {
@@ -172,10 +171,10 @@ const LayoutSearch = props => {
     filteredBlogPosts = deepClone(posts)
   }
 
-  return <>
+  return <LayoutBase {...props} topSlot={<BlogListBar {...props} setFilterKey={setFilterKey} />}>
     <SearchNavBar {...props} />
     {siteConfig('POST_LIST_STYLE') === 'page' ? <BlogListPage {...props} posts={filteredBlogPosts} /> : <BlogListScroll {...props} posts={filteredBlogPosts} />}
-  </>
+  </LayoutBase>
 }
 
 /**
@@ -186,11 +185,11 @@ const LayoutSearch = props => {
 const LayoutArchive = props => {
   const { archivePosts } = props
   return (
-        <>
+        <LayoutBase {...props}>
             <div className="mb-10 pb-20 md:py-12 p-3  min-h-screen w-full">
                 {Object.keys(archivePosts).map(archiveTitle => <BlogArchiveItem key={archiveTitle} archiveTitle={archiveTitle} archivePosts={archivePosts} />)}
             </div>
-        </>
+        </LayoutBase>
   )
 }
 
@@ -203,7 +202,7 @@ const LayoutSlug = props => {
   const { post, lock, validPassword } = props
 
   return (
-        <>
+        <LayoutBase {...props}>
 
             {lock && <ArticleLock validPassword={validPassword} />}
 
@@ -217,7 +216,7 @@ const LayoutSlug = props => {
                 </>
             </div>}
 
-        </>
+        </LayoutBase>
   )
 }
 
@@ -227,9 +226,9 @@ const LayoutSlug = props => {
  * @returns
  */
 const Layout404 = (props) => {
-  return <>
+  return <LayoutBase {...props}>
         404 Not found.
-    </>
+    </LayoutBase>
 }
 
 /**
@@ -241,7 +240,7 @@ const LayoutCategoryIndex = (props) => {
   const { categoryOptions } = props
 
   return (
-        <>
+        <LayoutBase {...props}>
             <div id='category-list' className='duration-200 flex flex-wrap'>
                 {categoryOptions?.map(category => {
                   return (
@@ -258,7 +257,7 @@ const LayoutCategoryIndex = (props) => {
                   )
                 })}
             </div>
-        </>
+        </LayoutBase>
   )
 }
 
@@ -270,7 +269,7 @@ const LayoutCategoryIndex = (props) => {
 const LayoutTagIndex = (props) => {
   const { tagOptions } = props
   return (
-        <>
+        <LayoutBase {...props}>
             <div>
                 <div id='tags-list' className='duration-200 flex flex-wrap'>
                     {tagOptions.map(tag => {
@@ -285,13 +284,12 @@ const LayoutTagIndex = (props) => {
                     })}
                 </div>
             </div>
-        </>
+        </LayoutBase>
   )
 }
 
 export {
   CONFIG as THEME_CONFIG,
-  LayoutBase,
   LayoutIndex,
   LayoutSearch,
   LayoutArchive,

@@ -10,7 +10,6 @@ import SearchDrawer from './SearchDrawer'
 import TagGroups from './TagGroups'
 import CONFIG from '../config'
 import { siteConfig } from '@/lib/config'
-import { useNextGlobal } from '..'
 
 let windowTop = 0
 
@@ -55,16 +54,6 @@ const TopNav = (props) => {
     changeShow(!isOpen)
   }
 
-  const { searchModal } = useNextGlobal()
-  const showSeachModal = () => {
-    if (siteConfig('ALGOLIA_APP_ID')) {
-      searchModal?.current?.openSearch()
-    } else {
-      searchDrawer?.current?.show()
-    }
-  }
-
-  //   搜索栏
   const searchDrawerSlot = <>
         {categories && (
             <section className='mt-8'>
@@ -123,7 +112,7 @@ const TopNav = (props) => {
 
                     {/* 右侧功能 */}
                     <div className='mr-1 flex justify-end items-center text-sm space-x-4 font-serif dark:text-gray-200'>
-                        <div className="cursor-pointer block lg:hidden" onClick={showSeachModal}>
+                        <div className="cursor-pointer block lg:hidden" onClick={() => { searchDrawer?.current?.show() }}>
                             <i className="mr-2 fas fa-search" />{locale.NAV.SEARCH}
                         </div>
                     </div>

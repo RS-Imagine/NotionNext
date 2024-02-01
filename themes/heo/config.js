@@ -5,9 +5,7 @@ const CONFIG = {
 
   // 首页顶部通知条滚动内容，如不需要可以留空 []
   HEO_NOTICE_BAR: [
-    { title: '你好，欢迎来到我的个人博客！', url: '/#' },
-    { title: '猥以蒙鄙之姿，得觀希世之寶',url: '/#' },
-    { title: 'ImagineChat 现已推出，欢迎大家尝试！',url: 'https://chat.forimagine.eu.org' }
+    { title: 'ImagineChat 现已推出！',url: 'https://chat.forimagine.eu.org' }
   ],
 
   // 英雄区左右侧组件颠倒位置

@@ -93,7 +93,7 @@ export default function CustomContextMenu(props) {
   /**
   * 切换主题
   */
-  function handleChangeTheme() {
+  function handeChangeTheme() {
     const randomTheme = THEMES[Math.floor(Math.random() * THEMES.length)] // 从THEMES数组中 随机取一个主题
     const query = router.query
     query.theme = randomTheme
@@ -182,15 +182,15 @@ export default function CustomContextMenu(props) {
 
                     <div onClick={handleCopyLink} title={locale.MENU.SHARE_URL} className='w-full px-2 h-10 flex justify-start items-center flex-nowrap cursor-pointer hover:bg-blue-600 hover:text-white rounded-lg duration-200 transition-all'>
                         <i className="fa-solid fa-arrow-up-right-from-square mr-2" />
-                        <div className='whitespace-nowrap'>{locale.MENU.SHARE_URL}</div>
+                        <div className='whitespace-nowrap'>{locale.MENU.COPY_URL}</div>
                     </div>
 
                     <div onClick={handleChangeDarkMode} title={isDarkMode ? locale.MENU.LIGHT_MODE : locale.MENU.DARK_MODE} className='w-full px-2 h-10 flex justify-start items-center flex-nowrap cursor-pointer hover:bg-blue-600 hover:text-white rounded-lg duration-200 transition-all'>
                         {isDarkMode ? <i className="fa-regular fa-sun mr-2" /> : <i className="fa-regular fa-moon mr-2" />}
                         <div className='whitespace-nowrap'> {isDarkMode ? locale.MENU.LIGHT_MODE : locale.MENU.DARK_MODE}</div>
                     </div>
-                    {siteConfig('CUSTOM_RIGHT_CLICK_CONTEXT_MENU_THEME_SWITCH') && (
-                    <div onClick={handleChangeTheme} title={locale.MENU.THEME_SWITCH} className='w-full px-2 h-10 flex justify-start items-center flex-nowrap cursor-pointer hover:bg-blue-600 hover:text-white rounded-lg duration-200 transition-all'>
+          {siteConfig('CUSTOM_RIGHT_CLICK_CONTEXT_MENU_THEME_SWITCH') && (
+                    <div onClick={handeChangeTheme} title={locale.MENU.THEME_SWITCH} className='w-full px-2 h-10 flex justify-start items-center flex-nowrap cursor-pointer hover:bg-blue-600 hover:text-white rounded-lg duration-200 transition-all'>
                         <i className="fa-solid fa-palette mr-2" />
                         <div className='whitespace-nowrap'>{locale.MENU.THEME_SWITCH}</div>
                     </div>

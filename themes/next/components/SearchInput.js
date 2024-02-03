@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router'
 import { useGlobal } from '@/lib/global'
 import { useImperativeHandle, useRef, useState } from 'react'
-import { useNextGlobal } from '..'
-import { siteConfig } from '@/lib/config'
 
 let lock = false
 
@@ -11,8 +9,6 @@ const SearchInput = ({ currentTag, keyword, cRef }) => {
   const [onLoading, setLoadingState] = useState(false)
   const router = useRouter()
   const searchInputRef = useRef()
-  const { searchModal } = useNextGlobal()
-
   useImperativeHandle(cRef, () => {
     return {
       focus: () => {
@@ -20,21 +16,7 @@ const SearchInput = ({ currentTag, keyword, cRef }) => {
       }
     }
   })
-
-  const handleFocus = () => {
-    // 使用Algolia
-    if (siteConfig('ALGOLIA_APP_ID')) {
-      searchModal.current.openSearch()
-    }
-  }
-
   const handleSearch = () => {
-    // 使用Algolia
-    if (siteConfig('ALGOLIA_APP_ID')) {
-      searchModal.current.openSearch()
-      return
-    }
-
     const key = searchInputRef.current.value
     if (key && key !== '') {
       setLoadingState(true)
@@ -78,20 +60,18 @@ const SearchInput = ({ currentTag, keyword, cRef }) => {
     }
   }
 
-  return <div className='flex w-full bg-gray-100'
-              data-aos="fade-down"
-              data-aos-duration="500"
-              data-aos-delay="200"
-              data-aos-once="true"
-              data-aos-anchor-placement="top-bottom"
-        >
+  return <div data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-delay="200"
+        data-aos-once="true"
+        data-aos-anchor-placement="top-bottom"
+        className='flex w-full bg-gray-100'>
         <input
             ref={searchInputRef}
             type='text'
             placeholder={currentTag ? `${locale.SEARCH.TAGS} #${currentTag}` : `${locale.SEARCH.ARTICLES}`}
             className={'outline-none w-full text-sm pl-4 transition focus:shadow-lg font-light leading-10 text-black bg-gray-100 dark:bg-gray-800 dark:text-white'}
             onKeyUp={handleKeyUp}
-            onFocus={handleFocus}
             onCompositionStart={lockSearchInput}
             onCompositionUpdate={lockSearchInput}
             onCompositionEnd={unLockSearchInput}

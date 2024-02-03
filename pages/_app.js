@@ -9,11 +9,6 @@ import '@/styles/notion.css' //  重写部分样式
 import 'aos/dist/aos.css' // You can also use <link> for styles
 
 import { GlobalContextProvider } from '@/lib/global'
-import { getGlobalLayoutByTheme } from '@/themes/theme'
-import { useRouter } from 'next/router'
-import { useCallback, useMemo } from 'react'
-import { getQueryParam } from '../lib/utils'
-import useAdjustStyle from '@/hooks/useAdjustStyle'
 
 // 各种扩展插件 这个要阻塞引入
 import ExternalPlugins from '@/components/ExternalPlugins'

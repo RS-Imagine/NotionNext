@@ -1,6 +1,3 @@
-# NotionNext for Imagine-Blog
-通过[Vercel平台](https://vercel.com)部署[NotionNext](#notionnext)方案，搭建的[Imagine博客](https://forimagine.eu.org)
-<br><br><br>
 # NotionNext
 
 <p>

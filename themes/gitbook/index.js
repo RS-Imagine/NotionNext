@@ -29,7 +29,6 @@ import NotionPage from '@/components/NotionPage'
 import { ArticleLock } from './components/ArticleLock'
 import { Transition } from '@headlessui/react'
 import { Style } from './style'
-import CommonHead from '@/components/CommonHead'
 import BlogArchiveItem from './components/BlogArchiveItem'
 import BlogPostListPage from './components/BlogPostListPage'
 import Link from 'next/link'
@@ -48,7 +47,7 @@ export const useGitBookGlobal = () => useContext(ThemeGlobalGitbook)
  * @constructor
  */
 const LayoutBase = (props) => {
-  const { children, post, allNavPages, slotLeft, slotRight, slotTop, meta } = props
+  const { children, post, allNavPages, slotLeft, slotRight, slotTop } = props
   const { onLoading, fullWidth } = useGlobal()
   const router = useRouter()
   const [tocVisible, changeTocVisible] = useState(false)
@@ -63,7 +62,6 @@ const LayoutBase = (props) => {
 
   return (
         <ThemeGlobalGitbook.Provider value={{ tocVisible, changeTocVisible, filteredNavPages, setFilteredNavPages, allNavPages, pageNavVisible, changePageNavVisible }}>
-            <CommonHead meta={meta}/>
             <Style/>
 
             <div id='theme-gitbook' className='bg-white dark:bg-hexo-black-gray w-full h-full min-h-screen justify-center dark:text-gray-300'>

@@ -1,4 +1,5 @@
 import CONFIG from './config'
+import CommonHead from '@/components/CommonHead'
 import TopNav from './components/TopNav'
 import Live2D from '@/components/Live2D'
 import { useGlobal } from '@/lib/global'
@@ -39,12 +40,13 @@ import { siteConfig } from '@/lib/config'
  * @constructor
  */
 const LayoutBase = props => {
-  const { children, post } = props
+  const { children, headerSlot, meta, siteInfo, containerSlot, post } = props
   const { onLoading, fullWidth } = useGlobal()
 
   return (
         <div id='theme-matery' className="min-h-screen flex flex-col justify-between bg-hexo-background-gray dark:bg-black w-full">
-
+            {/* SEO相关 */}
+            <CommonHead meta={meta} siteInfo={siteInfo} />
             <Style/>
 
             {/* 顶部导航栏 */}

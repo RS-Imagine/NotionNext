@@ -41,8 +41,7 @@ module.exports = withBundleAnalyzer({
       'images.unsplash.com',
       'source.unsplash.com',
       'p1.qhimg.com',
-      'webmention.io',
-      'ko-fi.com'
+      'webmention.io'
     ]
   },
   // 默认将feed重定向至 /public/rss/feed.xml
@@ -93,9 +92,7 @@ module.exports = withBundleAnalyzer({
     //   })
     // }
     // 动态主题：添加 resolve.alias 配置，将动态路径映射到实际路径
-    if (!isServer) {
-      console.log('加载默认主题', path.resolve(__dirname, 'themes', THEME))
-    }
+    console.log('加载默认主题', path.resolve(__dirname, 'themes', THEME))
     config.resolve.alias['@theme-components'] = path.resolve(__dirname, 'themes', THEME)
     return config
   },

@@ -4,7 +4,6 @@ import { useGlobal } from '@/lib/global'
 // import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { checkContainHttp, sliceUrlFromHttp } from '@/lib/utils'
 
 /**
  * 最新文章列表
@@ -30,14 +29,14 @@ export default function LatestPostsGroupMini ({ latestPosts, siteInfo }) {
         </div>
         {latestPosts.map(post => {
           const selected = currentPath === `${siteConfig('SUB_PATH', '')}/${post.slug}`
+
           const headerImage = post?.pageCoverThumbnail ? post.pageCoverThumbnail : siteInfo?.pageCover
-          const url = checkContainHttp(post.slug) ? sliceUrlFromHttp(post.slug) : `${siteConfig('SUB_PATH', '')}/${post.slug}`
 
           return (
             (<Link
                     key={post.id}
                     title={post.title}
-                    href={url}
+                    href={`${siteConfig('SUB_PATH', '')}/${post.slug}`}
                     passHref
                     className={'my-3 flex'}>
 

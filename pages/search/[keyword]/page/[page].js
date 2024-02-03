@@ -1,4 +1,5 @@
 import { getGlobalData } from '@/lib/notion/getNotionData'
+import { useGlobal } from '@/lib/global'
 import { getDataFromCache } from '@/lib/cache/cache_manager'
 import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
@@ -6,10 +7,21 @@ import { getLayoutByTheme } from '@/themes/theme'
 import { siteConfig } from '@/lib/config'
 
 const Index = props => {
-  const { keyword } = props
+  const { keyword, siteInfo } = props
+  const { locale } = useGlobal()
+
   // 根据页面路径加载不同Layout文件
   const Layout = getLayoutByTheme({ theme: siteConfig('THEME'), router: useRouter() })
-  props = { ...props, currentSearch: keyword }
+
+  const meta = {
+    title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteConfig('TITLE')}`,
+    description: siteConfig('TITLE'),
+    image: siteInfo?.pageCover,
+    slug: 'search/' + (keyword || ''),
+    type: 'website'
+  }
+
+  props = { ...props, meta, currentSearch: keyword }
 
   return <Layout {...props} />
 }

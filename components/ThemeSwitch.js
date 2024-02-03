@@ -25,9 +25,7 @@ const ThemeSwitch = () => {
     const query = router.query
     query.theme = newTheme
     router.push({ pathname: router.pathname, query }).then(() => {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 500);
+      setIsLoading(false)
     })
   }
 
@@ -49,8 +47,7 @@ const ThemeSwitch = () => {
                 <div className="text-sm flex items-center group-hover:w-32 transition-all duration-200">
                     <i className="fa-solid fa-language w-5" />
                     <div className='w-0 group-hover:w-24 transition-all duration-200 overflow-hidden'>
-                        <label htmlFor="langSelect" className="sr-only">选择语言：</label>
-                        <select id="langSelect" value={lang} onChange={onLangSelectChange} name="themes" className='pl-1 bg-gray-50 dark:bg-black appearance-none outline-none dark:text-white uppercase cursor-pointer'>
+                        <select value={lang} onChange={onLangSelectChange} name="themes" className='pl-1 bg-gray-50 dark:bg-black appearance-none outline-none dark:text-white uppercase cursor-pointer'>
                             {Object.keys(LANGS)?.map(t => {
                               return <option key={t} value={t}>{LANGS[t].LOCALE}</option>
                             })}
@@ -62,8 +59,7 @@ const ThemeSwitch = () => {
                 <div className="text-sm flex items-center group-hover:w-32 transition-all duration-200">
                     <i className="fa-solid fa-palette w-5" />
                     <div className='w-0 group-hover:w-24 transition-all duration-200 overflow-hidden'>
-                        <label htmlFor="themeSelect" className="sr-only">选择主题：</label>
-                        <select id="themeSelect" value={currentTheme} onChange={onThemeSelectChange} name="themes" className='pl-1 bg-gray-50 dark:bg-black appearance-none outline-none dark:text-white uppercase cursor-pointer'>
+                        <select value={currentTheme} onChange={onThemeSelectChange} name="themes" className='pl-1 bg-gray-50 dark:bg-black appearance-none outline-none dark:text-white uppercase cursor-pointer'>
                             {THEMES?.map(t => {
                               return <option key={t} value={t}>{t}</option>
                             })}
@@ -74,8 +70,8 @@ const ThemeSwitch = () => {
         </Draggable>
 
         {/* 切换主题加载时的全屏遮罩 */}
-        <div className={`${isLoading ? 'opacity-90 ' : 'opacity-0'} 
-            w-screen h-screen glassmorphism bg-black text-white shadow-text flex justify-center items-center
+        <div className={`${isLoading ? 'opacity-50 ' : 'opacity-0'} 
+            w-screen h-screen bg-black text-white shadow-text flex justify-center items-center
             transition-all fixed top-0 left-0 pointer-events-none duration-1000 z-50 shadow-inner`}>
             <i className='text-3xl mr-5 fas fa-spinner animate-spin' />
         </div>

@@ -4,7 +4,6 @@ import TagItemMini from './TagItemMini'
 import TwikooCommentCount from '@/components/TwikooCommentCount'
 import { siteConfig } from '@/lib/config'
 import { formatDateFmt } from '@/lib/formatDate'
-import { checkContainHttp, sliceUrlFromHttp } from '@/lib/utils'
 
 /**
  * 博客列表的文字内容
@@ -12,12 +11,11 @@ import { checkContainHttp, sliceUrlFromHttp } from '@/lib/utils'
  * @returns
  */
 export const BlogPostCardInfo = ({ post, showPreview, showPageCover, showSummary }) => {
-  const url = checkContainHttp(post.slug) ? sliceUrlFromHttp(post.slug) : `${siteConfig('SUB_PATH', '')}/${post.slug}`
   return <div className={`flex flex-col justify-between lg:p-6 p-4  ${showPageCover && !showPreview ? 'md:w-7/12 w-full md:max-h-60' : 'w-full'}`}>
        <div>
          {/* 标题 */}
          <Link
-            href={url}
+            href={`${siteConfig('SUB_PATH', '')}/${post.slug}`}
             passHref
             className={`line-clamp-2 replace cursor-pointer text-2xl ${showPreview ? 'text-center' : ''
                 } leading-tight font-normal text-gray-600 dark:text-gray-100 hover:text-indigo-700 dark:hover:text-indigo-400`}>

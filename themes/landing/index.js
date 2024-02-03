@@ -15,6 +15,7 @@ import Features from './components/Features'
 import FeaturesBlocks from './components/FeaturesBlocks'
 import Testimonials from './components/Testimonials'
 import Newsletter from './components/Newsletter'
+import CommonHead from '@/components/CommonHead'
 import { useRouter } from 'next/router'
 import CONFIG from './config'
 import Loading from '@/components/Loading'
@@ -29,9 +30,12 @@ import { siteConfig } from '@/lib/config'
  * @returns
  */
 const LayoutBase = (props) => {
-  const { children } = props
+  const { meta, siteInfo, children } = props
 
   return <div id='theme-landing' className="overflow-hidden flex flex-col justify-between bg-white">
+
+        {/* 网页SEO */}
+        <CommonHead meta={meta} siteInfo={siteInfo} />
 
         {/* 顶部导航栏 */}
         <Header />

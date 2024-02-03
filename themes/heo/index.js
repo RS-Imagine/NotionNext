@@ -7,6 +7,7 @@
  */
 
 import CONFIG from './config'
+import CommonHead from '@/components/CommonHead'
 import { useEffect, useState } from 'react'
 import Footer from './components/Footer'
 import SideRight from './components/SideRight'
@@ -51,32 +52,13 @@ const LayoutBase = props => {
     children,
     headerSlot,
     slotTop,
-    className
+    slotRight,
+    className,
+    meta
   } = props
 
   // 全屏模式下的最大宽度
   const { fullWidth } = useGlobal()
-  const router = useRouter()
-
-  const headerSlot = (
-    <header>
-      {/* 顶部导航 */}
-      <NavBar {...props} />
-
-      {/* 通知横幅 */}
-      {router.route === '/'
-        ? <>
-            <NoticeBar />
-            <Hero {...props} />
-        </>
-        : null}
-      {fullWidth ? null : <PostHeader {...props} />}
-    </header>
-  )
-
-  // 右侧栏 用户信息+标签列表
-  const slotRight = (router.route === '/404' || fullWidth) ? null : <SideRight {...props} />
-
   const maxWidth = fullWidth ? 'max-w-[96rem] mx-auto' : 'max-w-[86rem]' // 普通最大宽度是86rem和顶部菜单栏对齐，留空则与窗口对齐
 
   const HEO_HERO_BODY_REVERSE = siteConfig('HEO_HERO_BODY_REVERSE', false, CONFIG)
@@ -86,7 +68,8 @@ const LayoutBase = props => {
       id="theme-heo"
       className="bg-[#f7f9fe] dark:bg-[#18171d] h-full min-h-screen flex flex-col"
     >
-
+      {/* SEO信息 */}
+      <CommonHead meta={meta} />
       <Style />
 
       {/* 顶部嵌入 导航栏，首页放hero，文章页放文章详情 */}
@@ -341,7 +324,13 @@ const LayoutSlug = props => {
     siteConfig('COMMENT_GITALK_CLIENT_ID') || siteConfig('COMMENT_WEBMENTION_ENABLE')
 
   return (
-    <>
+    <LayoutBase
+      {...props}
+      headerSlot={headerSlot}
+      showCategory={false}
+      showTag={false}
+      slotRight={slotRight}
+    >
       <div className={`w-full ${fullWidth ? '' : 'xl:max-w-5xl'} ${hasCode ? 'xl:w-[73.15vw]' : ''} lg:hover:shadow lg:border rounded-2xl lg:px-2 lg:py-4 bg-white dark:bg-[#18171d] dark:border-gray-600 article`}>
         {lock && <ArticleLock validPassword={validPassword} />}
 
@@ -401,7 +390,7 @@ const LayoutSlug = props => {
         )}
       </div>
       <FloatTocButton {...props} />
-    </>
+    </LayoutBase>
   )
 }
 

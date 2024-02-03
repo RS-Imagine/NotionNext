@@ -25,6 +25,7 @@ import TagItem from './components/TagItem'
 import { useRouter } from 'next/router'
 import { Transition } from '@headlessui/react'
 import { Style } from './style'
+import CommonHead from '@/components/CommonHead'
 import { siteConfig } from '@/lib/config'
 
 /**
@@ -35,7 +36,7 @@ import { siteConfig } from '@/lib/config'
  * @constructor
  */
 const LayoutBase = props => {
-  const { children } = props
+  const { children, slotTop, meta } = props
   const { onLoading, fullWidth } = useGlobal()
 
   // 增加一个状态以触发 Transition 组件的动画
@@ -48,6 +49,9 @@ const LayoutBase = props => {
 
   return (
         <div id='theme-example' className='dark:text-gray-300  bg-white dark:bg-black'>
+
+            {/* SEO信息 */}
+            <CommonHead meta={meta}/>
 
             <Style/>
 

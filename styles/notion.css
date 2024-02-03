@@ -950,7 +950,6 @@ code[class*='language-'] {
   margin-left: 8px;
   white-space: pre-wrap;
   word-break: break-word;
-  overflow: hidden;
 }
 
 .notion-toggle {

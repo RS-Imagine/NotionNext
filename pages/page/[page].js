@@ -11,8 +11,20 @@ import { siteConfig } from '@/lib/config'
  * @returns
  */
 const Page = props => {
+  const { siteInfo } = props
+
   // 根据页面路径加载不同Layout文件
   const Layout = getLayoutByTheme({ theme: siteConfig('THEME'), router: useRouter() })
+
+  const meta = {
+    title: `${props?.page} | Page | ${siteConfig('TITLE')}`,
+    description: siteConfig('DESCRIPTION'),
+    image: siteInfo?.pageCover,
+    slug: 'page/' + props.page,
+    type: 'website'
+  }
+
+  props = { ...props, meta }
 
   return <Layout {...props} />
 }

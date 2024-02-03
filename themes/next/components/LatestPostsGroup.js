@@ -2,7 +2,6 @@ import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { checkContainHttp, sliceUrlFromHttp } from '@/lib/utils'
 
 /**
  * 最新文章列表
@@ -28,12 +27,11 @@ const LatestPostsGroup = ({ latestPosts }) => {
     </div>
     {latestPosts.map(post => {
       const selected = currentPath === `${siteConfig('SUB_PATH', '')}/${post.slug}`
-      const url = checkContainHttp(post.slug) ? sliceUrlFromHttp(post.slug) : `${siteConfig('SUB_PATH', '')}/${post.slug}`
       return (
         (<Link
           key={post.id}
           title={post.title}
-          href={url}
+          href={`${siteConfig('SUB_PATH', '')}/${post.slug}`}
           passHref
           className={'my-1 flex font-light'}>
 

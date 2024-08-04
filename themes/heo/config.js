@@ -34,8 +34,6 @@ const CONFIG = {
   // 右侧个人资料卡牌欢迎语，点击可自动切换
   HEO_INFOCARD_GREETINGS: [
     '你好！',
-    '🔍 主修遥感科学技术',
-    '🏃 在此分享技术经验',
     '👋 欢迎来到我的博客'
   ],
   HEO_INFO_CARD_URL: 'https://github.com/RS-Imagine', // 个人资料底部按钮链接
@@ -43,21 +41,30 @@ const CONFIG = {
   // 用户技能图标
   HEO_GROUP_ICONS: [ //一组为列，一列可多行配置技能卡
     {
-      title_2: 'Python',
-      img_2: '/images/heo/20235c0731cd4c0c95fc136a8db961fdf963071502.webp',
-      color_2: '#ffffff'
+      title_1: 'Python',
+      img_1: '/images/heo/20235c0731cd4c0c95fc136a8db961fdf963071502.webp',
+      color_1: '#ffffff',
+      title_2: 'Man-night',
+      img_2: '/images/heo/mannight.webp',
     },
     {
-      title_1: 'Git',
-      img_1: '/images/heo/2023ffa5707c4e25b6beb3e6a3d286ede4c6071102.webp',
-      color_1: '#df5b40',
+      title_1: 'Dogcat',
+      img_1: '/images/heo/dogcat.webp',
+      title_2: 'Git',
+      img_2: '/images/heo/2023ffa5707c4e25b6beb3e6a3d286ede4c6071102.webp',
+      color_2: '#df5b40'
     },
     {
-      title_2: 'CSS3',
-      img_2: '/images/heo/20237c548846044a20dad68a13c0f0e1502f074602.webp',
-      color_2: '#2c51db'
+      title_1: 'CSS3',
+      img_1: '/images/heo/20237c548846044a20dad68a13c0f0e1502f074602.webp',
+      color_1: '#2c51db',
+      title_2: 'sunset',
+      img_2: '/images/heo/sunset.webp'
+
     },
     {
+      title_1: 'mountain',
+      img_1: '/images/heo/mountain.webp',
       title_2: 'HTML',
       img_2: '/images/heo/202372b4d760fd8a497d442140c295655426070302.webp',
       color_2: '#e9572b'

@@ -1,4 +1,7 @@
 const CONFIG = {
+  HEO_HOME_POST_TWO_COLS: true, // 首页博客两列显示，若为false则只显示一列
+  HEO_LOADING_COVER: true, // 页面加载的遮罩动画
+
   HEO_HOME_BANNER_ENABLE: true,
 
   HEO_SITE_CREATE_TIME: '2023-11-25', // 建站日期，用于计算网站运行的第几天
@@ -20,6 +23,8 @@ const CONFIG = {
   HEO_HERO_TITLE_4: '个人博客',
   HEO_HERO_TITLE_5: 'Blog For Imagine | Sharing with you',
   HEO_HERO_TITLE_LINK: 'https://forimagine.eu.org',
+  // 英雄区遮罩文字
+  HEO_HERO_COVER_TITLE: '随便逛逛',
 
   // 英雄区显示三个置顶分类
   HEO_HERO_CATEGORY_1: { title: '热门推荐', url: '/tag/推荐' },

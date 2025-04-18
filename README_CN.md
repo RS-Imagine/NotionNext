@@ -52,6 +52,9 @@ You can set up your personal website in just a few minutes. Here is the link to 
 
 ## 贡献者
 
+<<<<<<< HEAD:README_EN.md
+This project exists thanks to all the people who contribute.
+=======
 <table>
   <tr align="left">
   <td align="center">
@@ -188,7 +191,9 @@ You can set up your personal website in just a few minutes. Here is the link to 
 
 </tr>
 </table>
+>>>>>>> d371156ad7ec1c8348365a5c983b2e04780a8180:README_CN.md
 
+[![Contributors](https://contrib.rocks/image?repo=tangly1024/NotionNext)](https://github.com/tangly1024/NotionNext/graphs/contributors)
 
 ## 引用技术
 

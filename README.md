@@ -12,7 +12,7 @@ here is the website->[ImagineBlog](https://forimagine.eu.org 'ImagineBlog')
 
 访问帮助：[NotionNext帮助手册](https://docs.tangly1024.com/)
 
-> 本项目教程为免费、公开资源，仅限个人学习使用。严禁任何个人或组织将本教程用于商业用途，包括但不限于直接售卖、间接收费、或其他变相盈利行为。转载、复制或介绍本教程内容时，须保留作者信息并明确注明来源。
+> 本项目教程为免费、公开资源，仅限个人学习使用，禁止利用本教程建立的博客发布非法内容、进行违法犯罪活动。严禁任何个人或组织将本教程用于商业用途，包括但不限于直接售卖、间接收费、或其他变相盈利行为。转载、复制或介绍本教程内容时，须保留作者信息并明确注明来源。 
 > 本项目仅提供由作者团队授权的付费咨询服务，请注意辨别，谨防诈骗行为。任何未经授权的收费服务均可能存在法律风险。
 
 Notion是一个能让效率暴涨的生产力引擎，可以帮你书写文档、管理笔记，搭建知识库，甚至可以为你规划项目、时间管理、组织团队、提高生产力、还有当前最强大的AI技术加持。
@@ -63,20 +63,11 @@ A static blog system built with NextJS and Notion API, deployed on Vercel. Desig
 
 ## Contributors
 
-<table>
-  <tr align="left">
-  <td align="center">
-  <a href="https://github.com/tangly1024" style="display:inline-block;width:80px"><img src="https://avatars.githubusercontent.com/u/15920488" width="64px;"alt="tangly1024"/><br/><sub><b>tangly1024</b></sub></a><br/><a href="https://github.com/tangly1024/NotionNext/commits?author=tangly1024" title="Owner" >🎫 🔧 🐛</a>
-  </td> 
-    
-  <td align="center">
-    <a href="https://github.com/uWayLu"  style="display:inline-block;width:80px"><img src="https://avatars.githubusercontent.com/u/21689326" width="64px;" alt="uWayLu"/><br/><sub><b>uWayLu</b></sub></a><br/><a href="https://github.com/tangly1024/NotionNext/commits?author=uWayLu" title="uWayLu" >🔧 🐛</a>
-  </td>
-    
-  <td align="center">
-    <a href="https://github.com/txs" style="display:inline-block;width:80px"><img src="https://avatars.githubusercontent.com/u/554329" width="64px;" alt="txs"/><br/><sub><b>txs</b></sub></a><br/><a href="https://github.com/tangly1024/NotionNext/commits?author=txs" title="txs" >🔧 🐛</a>
-  </td>
+感谢所有为 NotionNext 做出贡献的人！
 
+<<<<<<< HEAD
+[![Contributors](https://contrib.rocks/image?repo=tangly1024/NotionNext)](https://github.com/tangly1024/NotionNext/graphs/contributors)
+=======
   <td align="center">
     <a href="https://github.com/yuzhanglong" style="display:inline-block;width:80px"><img src="https://avatars.githubusercontent.com/u/56540811" width="64px;" alt="yuzhanglong"/><br/><sub><b>yuzhanglong</b></sub></a><br/><a href="https://github.com/tangly1024/NotionNext/commits?author=yuzhanglong" title="yuzhanglong" >🔧 🐛</a>
   </td> 
@@ -179,6 +170,7 @@ A static blog system built with NextJS and Notion API, deployed on Vercel. Desig
 
 </tr>
 </table>
+>>>>>>> d371156ad7ec1c8348365a5c983b2e04780a8180
 
 
 ## 引用技术

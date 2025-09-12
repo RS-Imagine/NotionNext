@@ -63,7 +63,7 @@ A static blog system built with NextJS and Notion API, deployed on Vercel. Desig
 
 ## Contributors
 
-感谢所有为 NotionNext 做出贡献的人！
+致敬每一位开发者！
 
 <<<<<<< HEAD
 [![Contributors](https://contrib.rocks/image?repo=tangly1024/NotionNext)](https://github.com/tangly1024/NotionNext/graphs/contributors)
